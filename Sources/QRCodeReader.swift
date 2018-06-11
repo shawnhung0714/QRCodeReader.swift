@@ -387,8 +387,6 @@ public final class QRCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegat
               guard weakSelf.session.isRunning, let sVal = _readableCodeObject.stringValue else { return }
 
               if weakSelf.stopScanningWhenCodeIsFound {
-                weakSelf.session.stopRunning()
-
                 DispatchQueue.main.async {
                   weakSelf.lifeCycleDelegate?.readerDidStopScanning()
                 }
